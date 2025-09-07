@@ -1,2 +1,2 @@
-# nominex-farming-rebuild
+# Nominex Farming Rebuild (Monorepo)
 educational / showcase project
