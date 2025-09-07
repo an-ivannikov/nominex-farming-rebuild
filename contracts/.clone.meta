@@ -1,0 +1,231 @@
+{
+  "path": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/Nmx.sol",
+  "targetContract": "Nmx",
+  "address": "0xd32d01a43c869edcd1117c640fbdcfcfd97d9d65",
+  "chainId": 56,
+  "creationTransaction": "0x43c7153751984a869f458b4705641e9bb54970f120cf0089b12f5b7167ed080e",
+  "deployer": "0x4c09956424d7df0773984d850c8007ca9e4a5ea7",
+  "constructorArguments": "0x000000000000000000000000c86e74935181acb6de7c9d8307dd4092e35cf4d0",
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 344,
+        "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/Nmx.sol:Nmx",
+        "label": "_balances",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_address,t_uint256)"
+      },
+      {
+        "astId": 350,
+        "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/Nmx.sol:Nmx",
+        "label": "_allowances",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))"
+      },
+      {
+        "astId": 352,
+        "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/Nmx.sol:Nmx",
+        "label": "_totalSupply",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 354,
+        "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/Nmx.sol:Nmx",
+        "label": "_name",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_string_storage"
+      },
+      {
+        "astId": 356,
+        "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/Nmx.sol:Nmx",
+        "label": "_symbol",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_string_storage"
+      },
+      {
+        "astId": 358,
+        "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/Nmx.sol:Nmx",
+        "label": "_decimals",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 30,
+        "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/Nmx.sol:Nmx",
+        "label": "_owner",
+        "offset": 1,
+        "slot": "5",
+        "type": "t_address"
+      },
+      {
+        "astId": 4606,
+        "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/Nmx.sol:Nmx",
+        "label": "nonces",
+        "offset": 0,
+        "slot": "6",
+        "type": "t_mapping(t_address,t_uint256)"
+      },
+      {
+        "astId": 4608,
+        "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/Nmx.sol:Nmx",
+        "label": "mintSchedule",
+        "offset": 0,
+        "slot": "7",
+        "type": "t_address"
+      },
+      {
+        "astId": 4612,
+        "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/Nmx.sol:Nmx",
+        "label": "poolByOwner",
+        "offset": 0,
+        "slot": "8",
+        "type": "t_mapping(t_address,t_enum(MintPool)3692)"
+      },
+      {
+        "astId": 4616,
+        "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/Nmx.sol:Nmx",
+        "label": "poolOwners",
+        "offset": 0,
+        "slot": "9",
+        "type": "t_array(t_address)3_storage"
+      },
+      {
+        "astId": 4621,
+        "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/Nmx.sol:Nmx",
+        "label": "poolMintStates",
+        "offset": 0,
+        "slot": "12",
+        "type": "t_array(t_struct(MintScheduleState)3703_storage)3_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_address)3_storage": {
+        "encoding": "inplace",
+        "label": "address[3]",
+        "numberOfBytes": "96",
+        "base": "t_address"
+      },
+      "t_array(t_struct(MintScheduleState)3703_storage)3_storage": {
+        "encoding": "inplace",
+        "label": "struct MintScheduleState[3]",
+        "numberOfBytes": "96",
+        "base": "t_struct(MintScheduleState)3703_storage"
+      },
+      "t_enum(MintPool)3692": {
+        "encoding": "inplace",
+        "label": "enum MintPool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_enum(MintPool)3692)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => enum MintPool)",
+        "numberOfBytes": "32",
+        "value": "t_enum(MintPool)3692"
+      },
+      "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => mapping(address => uint256))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_uint256)"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(MintScheduleState)3703_storage": {
+        "encoding": "inplace",
+        "label": "struct MintScheduleState",
+        "numberOfBytes": "32",
+        "members": [
+          {
+            "astId": 3694,
+            "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/Nmx.sol:Nmx",
+            "label": "time",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint40"
+          },
+          {
+            "astId": 3696,
+            "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/Nmx.sol:Nmx",
+            "label": "itemIndex",
+            "offset": 5,
+            "slot": "0",
+            "type": "t_uint8"
+          },
+          {
+            "astId": 3698,
+            "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/Nmx.sol:Nmx",
+            "label": "weekIndex",
+            "offset": 6,
+            "slot": "0",
+            "type": "t_uint16"
+          },
+          {
+            "astId": 3700,
+            "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/Nmx.sol:Nmx",
+            "label": "weekStartTime",
+            "offset": 8,
+            "slot": "0",
+            "type": "t_uint40"
+          },
+          {
+            "astId": 3702,
+            "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/Nmx.sol:Nmx",
+            "label": "nextTickSupply",
+            "offset": 13,
+            "slot": "0",
+            "type": "t_uint128"
+          }
+        ]
+      },
+      "t_uint128": {
+        "encoding": "inplace",
+        "label": "uint128",
+        "numberOfBytes": "16"
+      },
+      "t_uint16": {
+        "encoding": "inplace",
+        "label": "uint16",
+        "numberOfBytes": "2"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint40": {
+        "encoding": "inplace",
+        "label": "uint40",
+        "numberOfBytes": "5"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  }
+}
