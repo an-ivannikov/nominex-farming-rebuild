@@ -1320,5 +1320,59 @@
       "storage": [],
       "types": {}
     }
+  },
+  {
+    "path": "src/FixedRateNmxSupplier.sol",
+    "targetContract": "FixedRateNmxSupplier",
+    "address": "0x5322b348f3afe545bfe4133fe75b9e63328aa24a",
+    "chainId": 56,
+    "creationTransaction": "0x13b4745d70522205d93ba43c6ade05df9cddff994824256086ce27a2f76ab500",
+    "deployer": "0x5e635085c2c1287dc10e642cc173b0c89c870b09",
+    "constructorArguments": "0x000000000000000000000000d32d01a43c869edcd1117c640fbdcfcfd97d9d650000000000000000000000007e46e91c6d6cbd5425c0088cdf808960c50d9abc",
+    "storageLayout": {
+      "storage": [
+        {
+          "astId": 30,
+          "contract": "src/FixedRateNmxSupplier.sol:FixedRateNmxSupplier",
+          "label": "_owner",
+          "offset": 0,
+          "slot": "0",
+          "type": "t_address"
+        },
+        {
+          "astId": 223,
+          "contract": "src/FixedRateNmxSupplier.sol:FixedRateNmxSupplier",
+          "label": "nmxPerSecond",
+          "offset": 0,
+          "slot": "1",
+          "type": "t_uint128"
+        },
+        {
+          "astId": 225,
+          "contract": "src/FixedRateNmxSupplier.sol:FixedRateNmxSupplier",
+          "label": "fromTime",
+          "offset": 16,
+          "slot": "1",
+          "type": "t_uint40"
+        }
+      ],
+      "types": {
+        "t_address": {
+          "encoding": "inplace",
+          "label": "address",
+          "numberOfBytes": "20"
+        },
+        "t_uint128": {
+          "encoding": "inplace",
+          "label": "uint128",
+          "numberOfBytes": "16"
+        },
+        "t_uint40": {
+          "encoding": "inplace",
+          "label": "uint40",
+          "numberOfBytes": "5"
+        }
+      }
+    }
   }
 ]

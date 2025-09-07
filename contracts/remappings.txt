@@ -8,3 +8,5 @@ contracts/SingleStakerStakingService.sol/=src/SingleStakerStakingService.sol/
 contracts/RecoverableByOwner.sol/=src/RecoverableByOwner.sol/
 contracts/PausableByOwner.sol/=src/PausableByOwner.sol/
 contracts/interfaces/=src/interfaces/
+contracts/FixedRateNmxSupplier.sol/=src/FixedRateNmxSupplier.sol/
+contracts/NmxSupplier.sol/=src/NmxSupplier.sol/
