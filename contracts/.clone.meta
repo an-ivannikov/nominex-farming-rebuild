@@ -743,5 +743,180 @@
         }
       }
     }
+  },
+  {
+    "path": "src/SingleStakerStakingService.sol",
+    "targetContract": "SingleStakerStakingService",
+    "address": "0x57e61daae04f8c5fc973493706ca6e746f62749a",
+    "chainId": 56,
+    "creationTransaction": "0x2b11cc623a269124b7efba558acea23bd6c8d384cfb146349c7f13b8f6970f81",
+    "deployer": "0x5e635085c2c1287dc10e642cc173b0c89c870b09",
+    "constructorArguments": "0x000000000000000000000000d32d01a43c869edcd1117c640fbdcfcfd97d9d65000000000000000000000000d32d01a43c869edcd1117c640fbdcfcfd97d9d6500000000000000000000000099b674ba03e896d952983908dba8d7b560fb10d5",
+    "storageLayout": {
+      "storage": [
+        {
+          "astId": 130,
+          "contract": "src/SingleStakerStakingService.sol:SingleStakerStakingService",
+          "label": "_paused",
+          "offset": 0,
+          "slot": "0",
+          "type": "t_bool"
+        },
+        {
+          "astId": 7,
+          "contract": "src/SingleStakerStakingService.sol:SingleStakerStakingService",
+          "label": "_owner",
+          "offset": 1,
+          "slot": "0",
+          "type": "t_address"
+        },
+        {
+          "astId": 1280,
+          "contract": "src/SingleStakerStakingService.sol:SingleStakerStakingService",
+          "label": "nonces",
+          "offset": 0,
+          "slot": "1",
+          "type": "t_mapping(t_address,t_uint256)"
+        },
+        {
+          "astId": 1288,
+          "contract": "src/SingleStakerStakingService.sol:SingleStakerStakingService",
+          "label": "nmxSupplier",
+          "offset": 0,
+          "slot": "2",
+          "type": "t_address"
+        },
+        {
+          "astId": 1290,
+          "contract": "src/SingleStakerStakingService.sol:SingleStakerStakingService",
+          "label": "staker",
+          "offset": 0,
+          "slot": "3",
+          "type": "t_address"
+        },
+        {
+          "astId": 1294,
+          "contract": "src/SingleStakerStakingService.sol:SingleStakerStakingService",
+          "label": "state",
+          "offset": 0,
+          "slot": "4",
+          "type": "t_struct(State)1243_storage"
+        },
+        {
+          "astId": 1300,
+          "contract": "src/SingleStakerStakingService.sol:SingleStakerStakingService",
+          "label": "stakers",
+          "offset": 0,
+          "slot": "5",
+          "type": "t_mapping(t_address,t_struct(Staker)1252_storage)"
+        },
+        {
+          "astId": 1304,
+          "contract": "src/SingleStakerStakingService.sol:SingleStakerStakingService",
+          "label": "claimRewardPaused",
+          "offset": 0,
+          "slot": "6",
+          "type": "t_bool"
+        }
+      ],
+      "types": {
+        "t_address": {
+          "encoding": "inplace",
+          "label": "address",
+          "numberOfBytes": "20"
+        },
+        "t_bool": {
+          "encoding": "inplace",
+          "label": "bool",
+          "numberOfBytes": "1"
+        },
+        "t_mapping(t_address,t_struct(Staker)1252_storage)": {
+          "encoding": "mapping",
+          "key": "t_address",
+          "label": "mapping(address => struct SingleStakerStakingService.Staker)",
+          "numberOfBytes": "32",
+          "value": "t_struct(Staker)1252_storage"
+        },
+        "t_mapping(t_address,t_uint256)": {
+          "encoding": "mapping",
+          "key": "t_address",
+          "label": "mapping(address => uint256)",
+          "numberOfBytes": "32",
+          "value": "t_uint256"
+        },
+        "t_struct(Staker)1252_storage": {
+          "encoding": "inplace",
+          "label": "struct SingleStakerStakingService.Staker",
+          "numberOfBytes": "96",
+          "members": [
+            {
+              "astId": 1245,
+              "contract": "src/SingleStakerStakingService.sol:SingleStakerStakingService",
+              "label": "amount",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_uint256"
+            },
+            {
+              "astId": 1247,
+              "contract": "src/SingleStakerStakingService.sol:SingleStakerStakingService",
+              "label": "initialRewardRate",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_uint128"
+            },
+            {
+              "astId": 1249,
+              "contract": "src/SingleStakerStakingService.sol:SingleStakerStakingService",
+              "label": "reward",
+              "offset": 16,
+              "slot": "1",
+              "type": "t_uint128"
+            },
+            {
+              "astId": 1251,
+              "contract": "src/SingleStakerStakingService.sol:SingleStakerStakingService",
+              "label": "claimedReward",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_uint256"
+            }
+          ]
+        },
+        "t_struct(State)1243_storage": {
+          "encoding": "inplace",
+          "label": "struct SingleStakerStakingService.State",
+          "numberOfBytes": "32",
+          "members": [
+            {
+              "astId": 1240,
+              "contract": "src/SingleStakerStakingService.sol:SingleStakerStakingService",
+              "label": "totalStaked",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_uint128"
+            },
+            {
+              "astId": 1242,
+              "contract": "src/SingleStakerStakingService.sol:SingleStakerStakingService",
+              "label": "historicalRewardRate",
+              "offset": 16,
+              "slot": "0",
+              "type": "t_uint128"
+            }
+          ]
+        },
+        "t_uint128": {
+          "encoding": "inplace",
+          "label": "uint128",
+          "numberOfBytes": "16"
+        },
+        "t_uint256": {
+          "encoding": "inplace",
+          "label": "uint256",
+          "numberOfBytes": "32"
+        }
+      }
+    }
   }
 ]
