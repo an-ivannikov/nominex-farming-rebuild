@@ -478,5 +478,172 @@
         }
       }
     }
+  },
+  {
+    "path": "src/contracts/StakingService2.sol",
+    "targetContract": "StakingService2",
+    "address": "0x10298be5abf74d111d133dc3493dc4c6a9fd924b",
+    "chainId": 56,
+    "creationTransaction": "0x004396d33525e9d432a44461a93494e19ddf801e255f2c1674777ad33fccf677",
+    "deployer": "0xcd095a9bde9cbf6a89093fe0442c7d6cf58fae3b",
+    "constructorArguments": "0x",
+    "storageLayout": {
+      "storage": [
+        {
+          "astId": 926,
+          "contract": "src/contracts/StakingService2.sol:StakingService2",
+          "label": "_paused",
+          "offset": 0,
+          "slot": "0",
+          "type": "t_bool"
+        },
+        {
+          "astId": 30,
+          "contract": "src/contracts/StakingService2.sol:StakingService2",
+          "label": "_owner",
+          "offset": 1,
+          "slot": "0",
+          "type": "t_address"
+        },
+        {
+          "astId": 5533,
+          "contract": "src/contracts/StakingService2.sol:StakingService2",
+          "label": "nonces",
+          "offset": 0,
+          "slot": "1",
+          "type": "t_mapping(t_address,t_uint256)"
+        },
+        {
+          "astId": 5541,
+          "contract": "src/contracts/StakingService2.sol:StakingService2",
+          "label": "nmxSupplier",
+          "offset": 0,
+          "slot": "2",
+          "type": "t_address"
+        },
+        {
+          "astId": 5543,
+          "contract": "src/contracts/StakingService2.sol:StakingService2",
+          "label": "state",
+          "offset": 0,
+          "slot": "3",
+          "type": "t_struct(State)5496_storage"
+        },
+        {
+          "astId": 5548,
+          "contract": "src/contracts/StakingService2.sol:StakingService2",
+          "label": "stakers",
+          "offset": 0,
+          "slot": "4",
+          "type": "t_mapping(t_address,t_struct(Staker)5505_storage)"
+        },
+        {
+          "astId": 5552,
+          "contract": "src/contracts/StakingService2.sol:StakingService2",
+          "label": "claimRewardPaused",
+          "offset": 0,
+          "slot": "5",
+          "type": "t_bool"
+        }
+      ],
+      "types": {
+        "t_address": {
+          "encoding": "inplace",
+          "label": "address",
+          "numberOfBytes": "20"
+        },
+        "t_bool": {
+          "encoding": "inplace",
+          "label": "bool",
+          "numberOfBytes": "1"
+        },
+        "t_mapping(t_address,t_struct(Staker)5505_storage)": {
+          "encoding": "mapping",
+          "key": "t_address",
+          "label": "mapping(address => struct StakingService2.Staker)",
+          "numberOfBytes": "32",
+          "value": "t_struct(Staker)5505_storage"
+        },
+        "t_mapping(t_address,t_uint256)": {
+          "encoding": "mapping",
+          "key": "t_address",
+          "label": "mapping(address => uint256)",
+          "numberOfBytes": "32",
+          "value": "t_uint256"
+        },
+        "t_struct(Staker)5505_storage": {
+          "encoding": "inplace",
+          "label": "struct StakingService2.Staker",
+          "numberOfBytes": "96",
+          "members": [
+            {
+              "astId": 5498,
+              "contract": "src/contracts/StakingService2.sol:StakingService2",
+              "label": "amount",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_uint256"
+            },
+            {
+              "astId": 5500,
+              "contract": "src/contracts/StakingService2.sol:StakingService2",
+              "label": "initialRewardRate",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_uint128"
+            },
+            {
+              "astId": 5502,
+              "contract": "src/contracts/StakingService2.sol:StakingService2",
+              "label": "reward",
+              "offset": 16,
+              "slot": "1",
+              "type": "t_uint128"
+            },
+            {
+              "astId": 5504,
+              "contract": "src/contracts/StakingService2.sol:StakingService2",
+              "label": "claimedReward",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_uint256"
+            }
+          ]
+        },
+        "t_struct(State)5496_storage": {
+          "encoding": "inplace",
+          "label": "struct StakingService2.State",
+          "numberOfBytes": "32",
+          "members": [
+            {
+              "astId": 5493,
+              "contract": "src/contracts/StakingService2.sol:StakingService2",
+              "label": "totalStaked",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_uint128"
+            },
+            {
+              "astId": 5495,
+              "contract": "src/contracts/StakingService2.sol:StakingService2",
+              "label": "historicalRewardRate",
+              "offset": 16,
+              "slot": "0",
+              "type": "t_uint128"
+            }
+          ]
+        },
+        "t_uint128": {
+          "encoding": "inplace",
+          "label": "uint128",
+          "numberOfBytes": "16"
+        },
+        "t_uint256": {
+          "encoding": "inplace",
+          "label": "uint256",
+          "numberOfBytes": "32"
+        }
+      }
+    }
   }
 ]
