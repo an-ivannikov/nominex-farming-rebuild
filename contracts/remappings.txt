@@ -1,9 +1,10 @@
 forge-std/=lib/forge-std/src/
+@openzeppelin/=../node_modules/@openzeppelin/
+@uniswap/=../node_modules/@uniswap/
+abdk-libraries-solidity/=../node_modules/abdk-libraries-solidity/
+
 home/=src/home/
-@uniswap/=src/@uniswap/
 contracts/=src/contracts/
-@openzeppelin/=src/@openzeppelin/
-abdk-libraries-solidity/=src/abdk-libraries-solidity/
 contracts/SingleStakerStakingService.sol/=src/SingleStakerStakingService.sol/
 contracts/RecoverableByOwner.sol/=src/RecoverableByOwner.sol/
 contracts/PausableByOwner.sol/=src/PausableByOwner.sol/

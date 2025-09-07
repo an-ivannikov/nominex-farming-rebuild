@@ -1,14 +1,47 @@
-# Compiler files
-cache/
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# dependencies
+node_modules/
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+*.log
+
+# macOS
+.DS_Store
+*.pem
+
+# local env files
+.env
+*.local
+
+# typescript
+*.tsbuildinfo
+
+# Foundry files
 out/
+cache/
+artifacts/
+report/
+snapshots/
+*.gas-snapshot
 
 # Ignores development broadcast logs
 !/broadcast
 /broadcast/*/31337/
 /broadcast/**/dry-run/
 
-# Docs
-docs/
+flatten/
 
-# Dotenv file
-.env
+# Hardhat Ignition default folder for deployments against a local node
+ignition/deployments/
+
+# TypeChain files
+typechain/
+typechain-types/
+
+# solidity-coverage files
+coverage/
+coverage.json

@@ -1,0 +1,44 @@
+{
+  "name": "@an-ivannikov/nominex-farming-rebuild",
+  "version": "1.0.0",
+  "description": "Nominex Farming Rebuild (Monorepo)",
+  "keywords": [
+    "nominex",
+    "farming"
+  ],
+  "private": true,
+  "publishConfig": {
+    "access": "restricted",
+    "provenance": true
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Aleksandr Ivannikov",
+    "email": "info@ivannikov.pro",
+    "url": "https://ivannikov.pro"
+  },
+  "homepage": "https://github.com/an-ivannikov/nominex-farming-rebuild#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/an-ivannikov/nominex-farming-rebuild.git"
+  },
+  "bugs": {
+    "url": "https://github.com/an-ivannikov/nominex-farming-rebuild/issues",
+    "email": "info@ivannikov.pro"
+  },
+  "scripts": {
+    "bootstrap": "pnpm i",
+    "build:contracts": "pnpm -w i && cd contracts && forge build",
+    "test:contracts": "pnpm -w i && cd contracts && forge test -vv"
+  },
+  "files": [],
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "@openzeppelin/contracts": "5.4.0",
+    "@openzeppelin/contracts-upgradeable": "5.4.0",
+    "@uniswap/v2-core": "1.0.1",
+    "abdk-libraries-solidity": "^3.2.0"
+  }
+}
