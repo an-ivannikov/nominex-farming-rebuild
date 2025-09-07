@@ -1,7 +1,7 @@
 {
-  "name": "@nominex-farming-rebuild/monorepo",
+  "name": "@nominex-farming-rebuild/contracts",
   "version": "1.0.0",
-  "description": "Nominex Farming Rebuild (Monorepo)",
+  "description": "Nominex Farming Rebuild (Smart Contracts)",
   "keywords": [
     "nominex",
     "farming"
@@ -26,18 +26,15 @@
     "url": "https://github.com/an-ivannikov/nominex-farming-rebuild/issues",
     "email": "info@ivannikov.pro"
   },
-  "scripts": {
-    "bootstrap": "pnpm i",
-    "build:contracts": "pnpm -w i && cd contracts && forge build",
-    "test:contracts": "pnpm -w i && cd contracts && forge test -vv"
-  },
-  "files": [],
-  "workspaces": [
-    "apps/*",
-    "packages/*",
-    "contracts"
+  "scripts": {},
+  "files": [
+    "contracts/",
+    "!contracts/test/",
+    "artifacts/Nmx.sol/Nmx.json",
+    "LICENSE",
+    "README.md"
   ],
-  "dependencies": {
+  "peerDependencies": {
     "@openzeppelin/contracts": "5.4.0",
     "@openzeppelin/contracts-upgradeable": "5.4.0",
     "@uniswap/v2-core": "1.0.1",

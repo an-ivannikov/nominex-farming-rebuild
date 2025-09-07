@@ -1,5 +1,5 @@
-## Nominex Smart Contracts
-> Orignal source code [github.com/nominex/eth-smart-contracts](https://github.com/nominex/eth-smart-contracts).
+## Nominex Farming Rebuild (Smart Contracts)
+> Original Nominex Smart Contracts source code [github.com/nominex/eth-smart-contracts](https://github.com/nominex/eth-smart-contracts).
 
 
 ### Deployed Smart Contracts

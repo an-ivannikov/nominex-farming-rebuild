@@ -1,0 +1,10 @@
+*
+
+!contracts/
+
+!artifacts/Nmx.sol/Nmx.json
+
+!LICENSE
+!README.md
+
+contracts/test/
