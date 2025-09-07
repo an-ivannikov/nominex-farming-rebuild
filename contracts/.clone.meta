@@ -1307,5 +1307,18 @@
         }
       }
     }
+  },
+  {
+    "path": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/FarmingHelper.sol",
+    "targetContract": "FarmingHelper",
+    "address": "0xf915038a27eee0e38cf4c978920e945429894ec6",
+    "chainId": 56,
+    "creationTransaction": "0x3ae74dd2e8fec9788dc3fe18ecdc42e023e49b6aa695dc5473f3964884e8d11e",
+    "deployer": "0x4c09956424d7df0773984d850c8007ca9e4a5ea7",
+    "constructorArguments": "0x000000000000000000000000dd7b0fc7a1a9de6b40220f6443f5d65531cd9994",
+    "storageLayout": {
+      "storage": [],
+      "types": {}
+    }
   }
 ]

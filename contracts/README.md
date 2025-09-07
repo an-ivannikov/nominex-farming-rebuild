@@ -14,3 +14,5 @@
   - https://bscscan.com/address/0x57e61dAAe04F8C5FC973493706Ca6E746F62749A
 - BoostingServicePrivateUpgradeable.sol:
   - https://bscscan.com/address/0x99dfa8dd16c07ae573c9dace6c2127140a3f4abf
+- FarmingHelper.sol:
+  - https://bscscan.com/address/0xF915038A27Eee0e38cF4C978920E945429894EC6
