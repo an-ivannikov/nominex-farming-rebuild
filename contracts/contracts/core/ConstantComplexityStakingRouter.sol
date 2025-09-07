@@ -20,7 +20,7 @@ contract ConstantComplexityStakingRouter is RecoverableByOwner, INmxSupplier {
 
     mapping(address => ServiceSupplyState) public supplyStates;
 
-    constructor(address _nmx) {
+    constructor(address initialOwner, address _nmx) Ownable(initialOwner) {
         nmx = _nmx;
     }
 
@@ -121,7 +121,7 @@ contract ConstantComplexityStakingRouter is RecoverableByOwner, INmxSupplier {
     }
 
     function receiveSupply(uint40 maxTime) internal virtual returns (uint256) {
-        return NmxSupplier(nmx).supplyNmx(maxTime);
+        return INmxSupplier(nmx).supplyNmx(maxTime);
     }
 
     function pendingSupplies(address service) external view returns (uint256) {

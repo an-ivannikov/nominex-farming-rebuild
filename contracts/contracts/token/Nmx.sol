@@ -17,7 +17,9 @@ contract Nmx is ERC20, INmxSupplier, RecoverableByOwner {
     address public mintSchedule;
     mapping(address => MintPool) public poolByOwner;
     address[3] public poolOwners; // 3 - number of MintPool values
-    /** @dev dedicated state for every pool to decrease gas consumtion in case of staking/unstaking - no updates related to other mint pools are required to be persisted */
+    /**
+     * @dev dedicated state for every pool to decrease gas consumtion in case of staking/unstaking - no updates related to other mint pools are required to be persisted
+     */
     MintScheduleState[3] public poolMintStates; // 3 - number of MintPool values
 
     uint40 private constant DISTRIBUTION_START_TIME = 1614319200; // 2021-02-26T06:00:00Z
@@ -29,7 +31,10 @@ contract Nmx is ERC20, INmxSupplier, RecoverableByOwner {
     );
     event ScheduleChanged(address previousSchedule, address newSchedule);
 
-    constructor(address _mintSchedule) ERC20("Nominex", "NMX") {
+    constructor(
+        address initialOwner,
+        address _mintSchedule
+    ) ERC20("Nominex", "NMX") Ownable(initialOwner) {
         uint256 chainId;
         assembly {
             chainId := chainid()
@@ -142,10 +147,10 @@ contract Nmx is ERC20, INmxSupplier, RecoverableByOwner {
     }
 
     /**
-      @dev if caller is owner of any mint pool it will be supplied with Nmx based on the schedule and time passed from the moment
-      when the method was invoked by the same mint pool owner last time
-      @param maxTime the upper limit of the time to make calculations
-    */
+     * @dev if caller is owner of any mint pool it will be supplied with Nmx based on the schedule and time passed from the moment
+     * when the method was invoked by the same mint pool owner last time
+     * @param maxTime the upper limit of the time to make calculations
+     */
     function supplyNmx(uint40 maxTime) external override returns (uint256) {
         if (maxTime > uint40(block.timestamp))
             maxTime = uint40(block.timestamp);

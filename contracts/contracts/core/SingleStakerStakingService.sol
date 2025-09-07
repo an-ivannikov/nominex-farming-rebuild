@@ -2,12 +2,13 @@
 pragma solidity >=0.8.0 <0.9.0;
 pragma abicoder v2;
 
-import "../token/Nmx.sol";
 import "../access/PausableByOwner.sol";
 import "../access/RecoverableByOwner.sol";
 import "@uniswap/v2-core/contracts/interfaces/IUniswapV2ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "../interfaces/INmxSupplier.sol";
 
-contract StakingService is PausableByOwner, RecoverableByOwner {
+contract SingleStakerStakingService is PausableByOwner, RecoverableByOwner {
     /**
      * @param totalStaked amount of NMXLP currently staked in the service
      * @param historicalRewardRate how many NMX minted per one NMXLP (<< 40). Never decreases.
@@ -16,6 +17,7 @@ contract StakingService is PausableByOwner, RecoverableByOwner {
         uint128 totalStaked;
         uint128 historicalRewardRate;
     }
+
     /**
      * @param amount of NMXLP currently staked by the staker
      * @param initialRewardRate value of historicalRewardRate before last update of the staker's data
@@ -46,18 +48,26 @@ contract StakingService is PausableByOwner, RecoverableByOwner {
     address public immutable nmx; /// @dev Nmx contract
     address public immutable stakingToken; /// @dev NmxLp contract of uniswap
     address public nmxSupplier;
+    address public staker; /// @dev The only one who can stake
     State public state; /// @dev internal service state
     mapping(address => Staker) public stakers; /// @dev mapping of staker's address to its state
+    bool public claimRewardPaused = false;
 
     event Staked(address indexed owner, uint128 amount); /// @dev someone is staked NMXLP
     event Unstaked(address indexed from, address indexed to, uint128 amount); /// @dev someone unstaked NMXLP
     event Rewarded(address indexed from, address indexed to, uint128 amount); /// @dev someone transferred Nmx from the service
     event StakingBonusAccrued(address indexed staker, uint128 amount); /// @dev Nmx accrued to the staker
 
-    constructor(address _nmx, address _stakingToken, address _nmxSupplier) {
+    constructor(
+        address initialOwner,
+        address _nmx,
+        address _stakingToken,
+        address _nmxSupplier
+    ) Ownable(initialOwner) {
         nmx = _nmx;
         stakingToken = _stakingToken;
         nmxSupplier = _nmxSupplier;
+        staker = address(0);
 
         uint256 chainId;
         assembly {
@@ -78,11 +88,22 @@ contract StakingService is PausableByOwner, RecoverableByOwner {
     }
 
     /**
-     @dev function to stake permitted amount of LP tokens from uniswap contract
-     @param amount of NMXLP to be staked in the service
+     * @dev Throws if called by any account other than the staker.
+     */
+    modifier onlyStaker() {
+        require(
+            staker == _msgSender(),
+            "StakingService: caller is not the staker"
+        );
+        _;
+    }
+
+    /**
+     * @dev function to stake permitted amount of LP tokens from uniswap contract
+     * @param amount of NMXLP to be staked in the service
      */
     function stake(uint128 amount) external {
-        _stakeFrom(_msgSender(), amount);
+        _stakeFrom(_msgSender(), _msgSender(), amount);
     }
 
     function stakeWithPermit(
@@ -101,16 +122,24 @@ contract StakingService is PausableByOwner, RecoverableByOwner {
             r,
             s
         );
-        _stakeFrom(_msgSender(), amount);
+        _stakeFrom(_msgSender(), _msgSender(), amount);
+    }
+
+    function stakeFor(address owner, uint128 amount) external {
+        _stakeFrom(_msgSender(), owner, amount);
     }
 
     function stakeFrom(address owner, uint128 amount) external {
-        _stakeFrom(owner, amount);
+        _stakeFrom(owner, owner, amount);
     }
 
-    function _stakeFrom(address owner, uint128 amount) private whenNotPaused {
+    function _stakeFrom(
+        address sourceOfFunds,
+        address owner,
+        uint128 amount
+    ) private whenNotPaused onlyStaker {
         bool transferred = IERC20(stakingToken).transferFrom(
-            owner,
+            sourceOfFunds,
             address(this),
             uint256(amount)
         );
@@ -124,8 +153,8 @@ contract StakingService is PausableByOwner, RecoverableByOwner {
     }
 
     /**
-     @dev function to unstake LP tokens from the service and transfer to uniswap contract
-     @param amount of NMXLP to be unstaked from the service
+     * @dev function to unstake LP tokens from the service and transfer to uniswap contract
+     * @param amount of NMXLP to be unstaked from the service
      */
     function unstake(uint128 amount) external {
         _unstake(_msgSender(), _msgSender(), amount);
@@ -250,6 +279,7 @@ contract StakingService is PausableByOwner, RecoverableByOwner {
         address to,
         uint128 amount
     ) private {
+        require(!claimRewardPaused, "NmxStakingService: CLAIM_REWARD_PAUSED");
         assert(staker.reward >= staker.claimedReward);
         uint128 unclaimedReward = staker.reward - uint128(staker.claimedReward);
         require(
@@ -325,6 +355,10 @@ contract StakingService is PausableByOwner, RecoverableByOwner {
         nmxSupplier = newNmxSupplier;
     }
 
+    function setStaker(address newStaker) external onlyOwner {
+        staker = newStaker;
+    }
+
     function totalStaked() external view returns (uint128) {
         return state.totalStaked;
     }
@@ -344,5 +378,9 @@ contract StakingService is PausableByOwner, RecoverableByOwner {
             return balance - _totalStaked;
         }
         return RecoverableByOwner.getRecoverableAmount(tokenAddress);
+    }
+
+    function setClaimRewardPaused(bool _claimRewardPaused) external onlyOwner {
+        claimRewardPaused = _claimRewardPaused;
     }
 }

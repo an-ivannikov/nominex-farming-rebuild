@@ -14,7 +14,7 @@ contract StakingRouter is RecoverableByOwner, INmxSupplier {
     uint256 pendingSupplyOfInactiveServices;
     mapping(address => uint256) public pendingSupplies; /// @dev If there is more than one StakingService it is necessary to store supplied amount of Nmx between the invocations of particular service to return correct amount of supplied tokens
 
-    constructor(address _nmx) {
+    constructor(address initialOwner, address _nmx) Ownable(initialOwner) {
         nmx = _nmx;
     }
 

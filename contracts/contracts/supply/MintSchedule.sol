@@ -8,11 +8,11 @@ import "abdk-libraries-solidity/ABDKMath64x64.sol";
 
 contract MintSchedule is RecoverableByOwner {
     /**
-     @dev structure to describe the mint schedule. After each week MintScheduleState.nextTickSupply decreases.
-     When the schedule completes weekCount weeks in current item it goes to the next item in the items.
-     @param weekCount duration of the item in weeks
-     @param weekCompletenessMultiplier a number nextTickSupply is multiplied by after each week in the item
-     @param poolShares shares of the mint pool in the item
+     * @dev structure to describe the mint schedule. After each week MintScheduleState.nextTickSupply decreases.
+     * When the schedule completes weekCount weeks in current item it goes to the next item in the items.
+     * @param weekCount duration of the item in weeks
+     * @param weekCompletenessMultiplier a number nextTickSupply is multiplied by after each week in the item
+     * @param poolShares shares of the mint pool in the item
      */
     struct ScheduleItem {
         uint16 weekCount;
@@ -24,24 +24,24 @@ contract MintSchedule is RecoverableByOwner {
     using ABDKMath64x64 for int128;
     ScheduleItem[] public items; /// @dev array of shcedule describing items
 
-    constructor() {
+    constructor(address initialOwner) Ownable(initialOwner) {
         // 0.0, 0.625, 0.375
         int128[3] memory shares_01_28 = [
-            0,
+            int128(0),
             ABDKMath64x64.divu(625, 1000),
             ABDKMath64x64.divu(375, 1000)
         ];
 
         // 0.0, 0.5625, 0.4375
         int128[3] memory shares_29_56 = [
-            0,
+            int128(0),
             ABDKMath64x64.divu(5625, 10000),
             ABDKMath64x64.divu(4375, 10000)
         ];
 
         // 0.0, 0.5, 0.5
         int128[3] memory shares_57_xx = [
-            0,
+            int128(0),
             ABDKMath64x64.divu(5, 10),
             ABDKMath64x64.divu(5, 10)
         ];
@@ -180,7 +180,7 @@ contract MintSchedule is RecoverableByOwner {
     }
 
     /**
-     @dev calculates changes in scheduleState based on the time passed from last update and returns updated state and amount of Nmx to be minted
+     * @dev calculates changes in scheduleState based on the time passed from last update and returns updated state and amount of Nmx to be minted
      */
     function makeProgress(
         MintScheduleState memory scheduleState,

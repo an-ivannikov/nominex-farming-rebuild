@@ -118,6 +118,12 @@ contract BoostingServicePrivateUpgradeable is
             _oldLaunchpool != _launchpool,
             "BoostingService: INVALID_LAUNCHPOOL"
         );
+
+        __Pausable_init();
+        __Ownable_init(msg.sender);
+        __PausableByOwner_init();
+        __RecoverableByOwner_init();
+
         NMX = _nmx;
         OLD_LAUNCHPOOL = _oldLaunchpool;
         LAUNCHPOOL = _launchpool;
@@ -128,7 +134,7 @@ contract BoostingServicePrivateUpgradeable is
     }
 
     /**
-     @dev Modifier to make a function callable only when the contract is upgraded
+     * @dev Modifier to make a function callable only when the contract is upgraded
      */
     modifier whenUpgraded() {
         require(upgraded, "BoostingService: NOT_UPGRADED");
@@ -737,10 +743,10 @@ contract BoostingServicePrivateUpgradeable is
     }
 
     /**
-    @dev recalculates user's actual staking time after re-stake
-        the formula is principalAmount * secondsSinceStake / (principalAmount + stakeAmount) / (k1 + secondsSinceStake/durationInSeconds*k2)
-    @return Calculated user staking time in seconds
-    */
+     * @dev recalculates user's actual staking time after re-stake
+     * the formula is principalAmount * secondsSinceStake / (principalAmount + stakeAmount) / (k1 + secondsSinceStake/durationInSeconds*k2)
+     * @return Calculated user staking time in seconds
+     */
     function _recalculateStakingTime(
         uint64 stakedAt,
         uint128 principalAmount,

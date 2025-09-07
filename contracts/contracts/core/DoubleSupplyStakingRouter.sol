@@ -7,7 +7,10 @@ import "./StakingRouter.sol";
 contract DoubleSupplyStakingRouter is StakingRouter {
     address public immutable additionalSupplier;
 
-    constructor(address _nmx) StakingRouter(_nmx) {
+    constructor(
+        address initialOwner,
+        address _nmx
+    ) StakingRouter(initialOwner, _nmx) {
         FixedRateNmxSupplier fixedRateNmxSupplier = new FixedRateNmxSupplier(
             _nmx,
             address(this)

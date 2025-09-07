@@ -2,10 +2,18 @@
 
 
 [profile.default]
-src                 = "src"
-out                 = "out"
+src                 = "contracts"
+out                 = "artifacts"
+script              = "deploy"
+test                = "test"
+cache_path          = "cache_forge"
+
 libs                = [
-  "lib"
+  "lib",
+]
+
+allow_paths     = [
+    "../node_modules/",
 ]
 
 # Compiler settings

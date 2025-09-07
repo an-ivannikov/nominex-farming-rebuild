@@ -18,7 +18,11 @@ contract FixedRateNmxSupplier is INmxSupplier, RecoverableByOwner {
         _;
     }
 
-    constructor(address _nmx, address _stakingRouter) {
+    constructor(
+        address initialOwner,
+        address _nmx,
+        address _stakingRouter
+    ) Ownable(initialOwner) {
         nmx = _nmx;
         stakingRouter = _stakingRouter;
     }

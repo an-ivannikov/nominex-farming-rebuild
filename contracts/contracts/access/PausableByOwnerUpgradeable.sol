@@ -12,8 +12,11 @@ abstract contract PausableByOwnerUpgradeable is
     OwnableUpgradeable
 {
     function __PausableByOwner_init() internal onlyInitializing {
-        __Pausable_init();
-        __Ownable_init();
+        __PausableByOwner_init_unchained();
+    }
+
+    function __PausableByOwner_init_unchained() internal onlyInitializing {
+        // no-op
     }
 
     /**

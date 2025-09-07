@@ -2,13 +2,12 @@
 pragma solidity >=0.8.0 <0.9.0;
 pragma abicoder v2;
 
+import "../token/Nmx.sol";
 import "../access/PausableByOwner.sol";
 import "../access/RecoverableByOwner.sol";
 import "@uniswap/v2-core/contracts/interfaces/IUniswapV2ERC20.sol";
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "../interfaces/INmxSupplier.sol";
 
-contract SingleStakerStakingService is PausableByOwner, RecoverableByOwner {
+contract StakingService2 is PausableByOwner, RecoverableByOwner {
     /**
      * @param totalStaked amount of NMXLP currently staked in the service
      * @param historicalRewardRate how many NMX minted per one NMXLP (<< 40). Never decreases.
@@ -48,7 +47,6 @@ contract SingleStakerStakingService is PausableByOwner, RecoverableByOwner {
     address public immutable nmx; /// @dev Nmx contract
     address public immutable stakingToken; /// @dev NmxLp contract of uniswap
     address public nmxSupplier;
-    address public staker; /// @dev The only one who can stake
     State public state; /// @dev internal service state
     mapping(address => Staker) public stakers; /// @dev mapping of staker's address to its state
     bool public claimRewardPaused = false;
@@ -58,11 +56,15 @@ contract SingleStakerStakingService is PausableByOwner, RecoverableByOwner {
     event Rewarded(address indexed from, address indexed to, uint128 amount); /// @dev someone transferred Nmx from the service
     event StakingBonusAccrued(address indexed staker, uint128 amount); /// @dev Nmx accrued to the staker
 
-    constructor(address _nmx, address _stakingToken, address _nmxSupplier) {
+    constructor(
+        address initialOwner,
+        address _nmx,
+        address _stakingToken,
+        address _nmxSupplier
+    ) Ownable(initialOwner) {
         nmx = _nmx;
         stakingToken = _stakingToken;
         nmxSupplier = _nmxSupplier;
-        staker = address(0);
 
         uint256 chainId;
         assembly {
@@ -83,19 +85,8 @@ contract SingleStakerStakingService is PausableByOwner, RecoverableByOwner {
     }
 
     /**
-     @dev Throws if called by any account other than the staker.
-     */
-    modifier onlyStaker() {
-        require(
-            staker == _msgSender(),
-            "StakingService: caller is not the staker"
-        );
-        _;
-    }
-
-    /**
-     @dev function to stake permitted amount of LP tokens from uniswap contract
-     @param amount of NMXLP to be staked in the service
+     * @dev function to stake permitted amount of LP tokens from uniswap contract
+     * @param amount of NMXLP to be staked in the service
      */
     function stake(uint128 amount) external {
         _stakeFrom(_msgSender(), _msgSender(), amount);
@@ -132,7 +123,7 @@ contract SingleStakerStakingService is PausableByOwner, RecoverableByOwner {
         address sourceOfFunds,
         address owner,
         uint128 amount
-    ) private whenNotPaused onlyStaker {
+    ) private whenNotPaused {
         bool transferred = IERC20(stakingToken).transferFrom(
             sourceOfFunds,
             address(this),
@@ -148,8 +139,8 @@ contract SingleStakerStakingService is PausableByOwner, RecoverableByOwner {
     }
 
     /**
-     @dev function to unstake LP tokens from the service and transfer to uniswap contract
-     @param amount of NMXLP to be unstaked from the service
+     * @dev function to unstake LP tokens from the service and transfer to uniswap contract
+     * @param amount of NMXLP to be unstaked from the service
      */
     function unstake(uint128 amount) external {
         _unstake(_msgSender(), _msgSender(), amount);
@@ -348,10 +339,6 @@ contract SingleStakerStakingService is PausableByOwner, RecoverableByOwner {
 
     function changeNmxSupplier(address newNmxSupplier) external onlyOwner {
         nmxSupplier = newNmxSupplier;
-    }
-
-    function setStaker(address newStaker) external onlyOwner {
-        staker = newStaker;
     }
 
     function totalStaked() external view returns (uint128) {

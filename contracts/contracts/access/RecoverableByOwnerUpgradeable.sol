@@ -5,7 +5,7 @@ import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 /**
- @dev The contract is intendent to help recovering arbitrary ERC20 tokens and ETH accidentally transferred to the contract address
+ * @dev The contract is intendent to help recovering arbitrary ERC20 tokens and ETH accidentally transferred to the contract address
  */
 abstract contract RecoverableByOwnerUpgradeable is OwnableUpgradeable {
     function __RecoverableByOwner_init() internal onlyInitializing {
@@ -13,7 +13,7 @@ abstract contract RecoverableByOwnerUpgradeable is OwnableUpgradeable {
     }
 
     function __RecoverableByOwner_init_unchained() internal onlyInitializing {
-        __Ownable_init();
+        // no-op
     }
 
     function getRecoverableAmount(
@@ -24,9 +24,9 @@ abstract contract RecoverableByOwnerUpgradeable is OwnableUpgradeable {
     }
 
     /**
-     @param tokenAddress ERC20 token's address to recover or address(0) to recover ETH
-     @param amount to recover from contract's address
-     @param to address to receive tokens from the contract
+     * @param tokenAddress ERC20 token's address to recover or address(0) to recover ETH
+     * @param amount to recover from contract's address
+     * @param to address to receive tokens from the contract
      */
     function recoverFunds(
         address tokenAddress,
