@@ -321,6 +321,104 @@
     }
   },
   {
+    "path": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/DoubleSupplyStakingRouter.sol",
+    "targetContract": "DoubleSupplyStakingRouter",
+    "address": "0x99b674ba03e896d952983908dba8d7b560fb10d5",
+    "chainId": 56,
+    "creationTransaction": "0xdac683cd3a6aea8a1fb179bfcd60b81310bf21b9f926fde60cd2eb59376d07be",
+    "deployer": "0x4c09956424d7df0773984d850c8007ca9e4a5ea7",
+    "constructorArguments": "0x000000000000000000000000d32d01a43c869edcd1117c640fbdcfcfd97d9d65",
+    "storageLayout": {
+      "storage": [
+        {
+          "astId": 30,
+          "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/DoubleSupplyStakingRouter.sol:DoubleSupplyStakingRouter",
+          "label": "_owner",
+          "offset": 0,
+          "slot": "0",
+          "type": "t_address"
+        },
+        {
+          "astId": 3709,
+          "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/DoubleSupplyStakingRouter.sol:DoubleSupplyStakingRouter",
+          "label": "activeServices",
+          "offset": 0,
+          "slot": "1",
+          "type": "t_array(t_address)dyn_storage"
+        },
+        {
+          "astId": 3711,
+          "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/DoubleSupplyStakingRouter.sol:DoubleSupplyStakingRouter",
+          "label": "totalSupply",
+          "offset": 0,
+          "slot": "2",
+          "type": "t_uint256"
+        },
+        {
+          "astId": 3715,
+          "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/DoubleSupplyStakingRouter.sol:DoubleSupplyStakingRouter",
+          "label": "supplyStates",
+          "offset": 0,
+          "slot": "3",
+          "type": "t_mapping(t_address,t_struct(ServiceSupplyState)3706_storage)"
+        }
+      ],
+      "types": {
+        "t_address": {
+          "encoding": "inplace",
+          "label": "address",
+          "numberOfBytes": "20"
+        },
+        "t_array(t_address)dyn_storage": {
+          "encoding": "dynamic_array",
+          "label": "address[]",
+          "numberOfBytes": "32",
+          "base": "t_address"
+        },
+        "t_int128": {
+          "encoding": "inplace",
+          "label": "int128",
+          "numberOfBytes": "16"
+        },
+        "t_mapping(t_address,t_struct(ServiceSupplyState)3706_storage)": {
+          "encoding": "mapping",
+          "key": "t_address",
+          "label": "mapping(address => struct ConstantComplexityStakingRouter.ServiceSupplyState)",
+          "numberOfBytes": "32",
+          "value": "t_struct(ServiceSupplyState)3706_storage"
+        },
+        "t_struct(ServiceSupplyState)3706_storage": {
+          "encoding": "inplace",
+          "label": "struct ConstantComplexityStakingRouter.ServiceSupplyState",
+          "numberOfBytes": "64",
+          "members": [
+            {
+              "astId": 3703,
+              "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/DoubleSupplyStakingRouter.sol:DoubleSupplyStakingRouter",
+              "label": "processedSupply",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_uint256"
+            },
+            {
+              "astId": 3705,
+              "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/DoubleSupplyStakingRouter.sol:DoubleSupplyStakingRouter",
+              "label": "share",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_int128"
+            }
+          ]
+        },
+        "t_uint256": {
+          "encoding": "inplace",
+          "label": "uint256",
+          "numberOfBytes": "32"
+        }
+      }
+    }
+  },
+  {
     "path": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/StakingService.sol",
     "targetContract": "StakingService",
     "address": "0xdbf1b10fe3e05397cd454163f6f1ed0c1181c3b3",
