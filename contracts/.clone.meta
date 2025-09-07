@@ -319,5 +319,164 @@
         }
       }
     }
+  },
+  {
+    "path": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/StakingService.sol",
+    "targetContract": "StakingService",
+    "address": "0xdbf1b10fe3e05397cd454163f6f1ed0c1181c3b3",
+    "chainId": 56,
+    "creationTransaction": "0x915851c36d29dd959fa0f8f4a2f8a76535f7a8d2459f2fa1c8d8d3d6f74ffc77",
+    "deployer": "0x4c09956424d7df0773984d850c8007ca9e4a5ea7",
+    "constructorArguments": "0x000000000000000000000000d32d01a43c869edcd1117c640fbdcfcfd97d9d65000000000000000000000000d32d01a43c869edcd1117c640fbdcfcfd97d9d65000000000000000000000000d35181cdce436439b6562380844c7572a991fe16",
+    "storageLayout": {
+      "storage": [
+        {
+          "astId": 926,
+          "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/StakingService.sol:StakingService",
+          "label": "_paused",
+          "offset": 0,
+          "slot": "0",
+          "type": "t_bool"
+        },
+        {
+          "astId": 30,
+          "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/StakingService.sol:StakingService",
+          "label": "_owner",
+          "offset": 1,
+          "slot": "0",
+          "type": "t_address"
+        },
+        {
+          "astId": 5533,
+          "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/StakingService.sol:StakingService",
+          "label": "nonces",
+          "offset": 0,
+          "slot": "1",
+          "type": "t_mapping(t_address,t_uint256)"
+        },
+        {
+          "astId": 5541,
+          "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/StakingService.sol:StakingService",
+          "label": "nmxSupplier",
+          "offset": 0,
+          "slot": "2",
+          "type": "t_address"
+        },
+        {
+          "astId": 5543,
+          "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/StakingService.sol:StakingService",
+          "label": "state",
+          "offset": 0,
+          "slot": "3",
+          "type": "t_struct(State)5496_storage"
+        },
+        {
+          "astId": 5548,
+          "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/StakingService.sol:StakingService",
+          "label": "stakers",
+          "offset": 0,
+          "slot": "4",
+          "type": "t_mapping(t_address,t_struct(Staker)5505_storage)"
+        }
+      ],
+      "types": {
+        "t_address": {
+          "encoding": "inplace",
+          "label": "address",
+          "numberOfBytes": "20"
+        },
+        "t_bool": {
+          "encoding": "inplace",
+          "label": "bool",
+          "numberOfBytes": "1"
+        },
+        "t_mapping(t_address,t_struct(Staker)5505_storage)": {
+          "encoding": "mapping",
+          "key": "t_address",
+          "label": "mapping(address => struct StakingService.Staker)",
+          "numberOfBytes": "32",
+          "value": "t_struct(Staker)5505_storage"
+        },
+        "t_mapping(t_address,t_uint256)": {
+          "encoding": "mapping",
+          "key": "t_address",
+          "label": "mapping(address => uint256)",
+          "numberOfBytes": "32",
+          "value": "t_uint256"
+        },
+        "t_struct(Staker)5505_storage": {
+          "encoding": "inplace",
+          "label": "struct StakingService.Staker",
+          "numberOfBytes": "96",
+          "members": [
+            {
+              "astId": 5498,
+              "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/StakingService.sol:StakingService",
+              "label": "amount",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_uint256"
+            },
+            {
+              "astId": 5500,
+              "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/StakingService.sol:StakingService",
+              "label": "initialRewardRate",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_uint128"
+            },
+            {
+              "astId": 5502,
+              "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/StakingService.sol:StakingService",
+              "label": "reward",
+              "offset": 16,
+              "slot": "1",
+              "type": "t_uint128"
+            },
+            {
+              "astId": 5504,
+              "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/StakingService.sol:StakingService",
+              "label": "claimedReward",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_uint256"
+            }
+          ]
+        },
+        "t_struct(State)5496_storage": {
+          "encoding": "inplace",
+          "label": "struct StakingService.State",
+          "numberOfBytes": "32",
+          "members": [
+            {
+              "astId": 5493,
+              "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/StakingService.sol:StakingService",
+              "label": "totalStaked",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_uint128"
+            },
+            {
+              "astId": 5495,
+              "contract": "src/home/eraserpl/NetBeansProjects/eth-smart-contracts/contracts/StakingService.sol:StakingService",
+              "label": "historicalRewardRate",
+              "offset": 16,
+              "slot": "0",
+              "type": "t_uint128"
+            }
+          ]
+        },
+        "t_uint128": {
+          "encoding": "inplace",
+          "label": "uint128",
+          "numberOfBytes": "16"
+        },
+        "t_uint256": {
+          "encoding": "inplace",
+          "label": "uint256",
+          "numberOfBytes": "32"
+        }
+      }
+    }
   }
 ]

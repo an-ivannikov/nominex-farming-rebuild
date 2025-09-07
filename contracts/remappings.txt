@@ -1,4 +1,5 @@
 forge-std/=lib/forge-std/src/
 home/=src/home/
+@uniswap/=src/@uniswap/
 @openzeppelin/=src/@openzeppelin/
 abdk-libraries-solidity/=src/abdk-libraries-solidity/
