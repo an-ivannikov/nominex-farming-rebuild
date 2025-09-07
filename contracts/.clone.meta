@@ -918,5 +918,394 @@
         }
       }
     }
+  },
+  {
+    "path": "src/contracts/BoostingServicePrivateUpgradeable.sol",
+    "targetContract": "BoostingServicePrivateUpgradeable",
+    "address": "0x99dfa8dd16c07ae573c9dace6c2127140a3f4abf",
+    "chainId": 56,
+    "creationTransaction": "0x9d2cb1b3f197870386b8559fb2107dcb040c40e3adcde422bbad5514b7e1eedf",
+    "deployer": "0x5e635085c2c1287dc10e642cc173b0c89c870b09",
+    "constructorArguments": "0x",
+    "storageLayout": {
+      "storage": [
+        {
+          "astId": 527,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "_initialized",
+          "offset": 0,
+          "slot": "0",
+          "type": "t_uint8"
+        },
+        {
+          "astId": 530,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "_initializing",
+          "offset": 1,
+          "slot": "0",
+          "type": "t_bool"
+        },
+        {
+          "astId": 509,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "__gap",
+          "offset": 0,
+          "slot": "1",
+          "type": "t_array(t_uint256)50_storage"
+        },
+        {
+          "astId": 824,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "__gap",
+          "offset": 0,
+          "slot": "51",
+          "type": "t_array(t_uint256)50_storage"
+        },
+        {
+          "astId": 1277,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "__gap",
+          "offset": 0,
+          "slot": "101",
+          "type": "t_array(t_uint256)50_storage"
+        },
+        {
+          "astId": 846,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "_paused",
+          "offset": 0,
+          "slot": "151",
+          "type": "t_bool"
+        },
+        {
+          "astId": 951,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "__gap",
+          "offset": 0,
+          "slot": "152",
+          "type": "t_array(t_uint256)49_storage"
+        },
+        {
+          "astId": 10,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "_owner",
+          "offset": 0,
+          "slot": "201",
+          "type": "t_address"
+        },
+        {
+          "astId": 130,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "__gap",
+          "offset": 0,
+          "slot": "202",
+          "type": "t_array(t_uint256)49_storage"
+        },
+        {
+          "astId": 4299,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "domain_separator",
+          "offset": 0,
+          "slot": "251",
+          "type": "t_bytes32"
+        },
+        {
+          "astId": 4301,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "nmxSupplier",
+          "offset": 0,
+          "slot": "252",
+          "type": "t_address"
+        },
+        {
+          "astId": 4303,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "boostingRate",
+          "offset": 20,
+          "slot": "252",
+          "type": "t_uint16"
+        },
+        {
+          "astId": 4305,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "penaltyRate",
+          "offset": 22,
+          "slot": "252",
+          "type": "t_uint16"
+        },
+        {
+          "astId": 4307,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "performanceFee",
+          "offset": 24,
+          "slot": "252",
+          "type": "t_uint16"
+        },
+        {
+          "astId": 4309,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "totalShares",
+          "offset": 0,
+          "slot": "253",
+          "type": "t_uint128"
+        },
+        {
+          "astId": 4311,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "totalStakedCompounded",
+          "offset": 16,
+          "slot": "253",
+          "type": "t_uint128"
+        },
+        {
+          "astId": 4313,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "totalStaked",
+          "offset": 0,
+          "slot": "254",
+          "type": "t_uint128"
+        },
+        {
+          "astId": 4315,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "totalBoostings",
+          "offset": 16,
+          "slot": "254",
+          "type": "t_uint128"
+        },
+        {
+          "astId": 4317,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "historicalCompoundRate",
+          "offset": 0,
+          "slot": "255",
+          "type": "t_uint128"
+        },
+        {
+          "astId": 4319,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "historicalBoostingRate",
+          "offset": 16,
+          "slot": "255",
+          "type": "t_uint128"
+        },
+        {
+          "astId": 4324,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "stakers",
+          "offset": 0,
+          "slot": "256",
+          "type": "t_mapping(t_address,t_struct(Staker)4265_storage)"
+        },
+        {
+          "astId": 4328,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "boostingRateHistory",
+          "offset": 0,
+          "slot": "257",
+          "type": "t_array(t_struct(BoostingRateCheckpoint)4270_storage)dyn_storage"
+        },
+        {
+          "astId": 4332,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "nonces",
+          "offset": 0,
+          "slot": "258",
+          "type": "t_mapping(t_address,t_uint256)"
+        },
+        {
+          "astId": 4334,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "migrator",
+          "offset": 0,
+          "slot": "259",
+          "type": "t_address"
+        },
+        {
+          "astId": 4336,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "unstakedShares",
+          "offset": 0,
+          "slot": "260",
+          "type": "t_uint128"
+        },
+        {
+          "astId": 4338,
+          "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+          "label": "upgraded",
+          "offset": 16,
+          "slot": "260",
+          "type": "t_bool"
+        }
+      ],
+      "types": {
+        "t_address": {
+          "encoding": "inplace",
+          "label": "address",
+          "numberOfBytes": "20"
+        },
+        "t_array(t_struct(BoostingRateCheckpoint)4270_storage)dyn_storage": {
+          "encoding": "dynamic_array",
+          "label": "struct BoostingServicePrivateUpgradeable.BoostingRateCheckpoint[]",
+          "numberOfBytes": "32",
+          "base": "t_struct(BoostingRateCheckpoint)4270_storage"
+        },
+        "t_array(t_uint256)49_storage": {
+          "encoding": "inplace",
+          "label": "uint256[49]",
+          "numberOfBytes": "1568",
+          "base": "t_uint256"
+        },
+        "t_array(t_uint256)50_storage": {
+          "encoding": "inplace",
+          "label": "uint256[50]",
+          "numberOfBytes": "1600",
+          "base": "t_uint256"
+        },
+        "t_bool": {
+          "encoding": "inplace",
+          "label": "bool",
+          "numberOfBytes": "1"
+        },
+        "t_bytes32": {
+          "encoding": "inplace",
+          "label": "bytes32",
+          "numberOfBytes": "32"
+        },
+        "t_mapping(t_address,t_struct(Staker)4265_storage)": {
+          "encoding": "mapping",
+          "key": "t_address",
+          "label": "mapping(address => struct BoostingServicePrivateUpgradeable.Staker)",
+          "numberOfBytes": "32",
+          "value": "t_struct(Staker)4265_storage"
+        },
+        "t_mapping(t_address,t_uint256)": {
+          "encoding": "mapping",
+          "key": "t_address",
+          "label": "mapping(address => uint256)",
+          "numberOfBytes": "32",
+          "value": "t_uint256"
+        },
+        "t_struct(BoostingRateCheckpoint)4270_storage": {
+          "encoding": "inplace",
+          "label": "struct BoostingServicePrivateUpgradeable.BoostingRateCheckpoint",
+          "numberOfBytes": "32",
+          "members": [
+            {
+              "astId": 4267,
+              "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+              "label": "time",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_uint64"
+            },
+            {
+              "astId": 4269,
+              "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+              "label": "value",
+              "offset": 8,
+              "slot": "0",
+              "type": "t_uint128"
+            }
+          ]
+        },
+        "t_struct(Staker)4265_storage": {
+          "encoding": "inplace",
+          "label": "struct BoostingServicePrivateUpgradeable.Staker",
+          "numberOfBytes": "128",
+          "members": [
+            {
+              "astId": 4250,
+              "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+              "label": "initialCompoundRate",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_uint128"
+            },
+            {
+              "astId": 4252,
+              "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+              "label": "initialBoostingRate",
+              "offset": 16,
+              "slot": "0",
+              "type": "t_uint128"
+            },
+            {
+              "astId": 4254,
+              "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+              "label": "principalAmount",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_uint128"
+            },
+            {
+              "astId": 4256,
+              "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+              "label": "boostingAmount",
+              "offset": 16,
+              "slot": "1",
+              "type": "t_uint128"
+            },
+            {
+              "astId": 4258,
+              "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+              "label": "unlockedBoostingAmount",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_uint128"
+            },
+            {
+              "astId": 4260,
+              "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+              "label": "amount",
+              "offset": 16,
+              "slot": "2",
+              "type": "t_uint128"
+            },
+            {
+              "astId": 4262,
+              "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+              "label": "shares",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_uint128"
+            },
+            {
+              "astId": 4264,
+              "contract": "src/contracts/BoostingServicePrivateUpgradeable.sol:BoostingServicePrivateUpgradeable",
+              "label": "stakedAt",
+              "offset": 16,
+              "slot": "3",
+              "type": "t_uint64"
+            }
+          ]
+        },
+        "t_uint128": {
+          "encoding": "inplace",
+          "label": "uint128",
+          "numberOfBytes": "16"
+        },
+        "t_uint16": {
+          "encoding": "inplace",
+          "label": "uint16",
+          "numberOfBytes": "2"
+        },
+        "t_uint256": {
+          "encoding": "inplace",
+          "label": "uint256",
+          "numberOfBytes": "32"
+        },
+        "t_uint64": {
+          "encoding": "inplace",
+          "label": "uint64",
+          "numberOfBytes": "8"
+        },
+        "t_uint8": {
+          "encoding": "inplace",
+          "label": "uint8",
+          "numberOfBytes": "1"
+        }
+      }
+    }
   }
 ]

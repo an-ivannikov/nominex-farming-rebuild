@@ -12,3 +12,5 @@
   - https://bscscan.com/address/0x10298Be5Abf74D111D133dc3493Dc4C6a9FD924b
 - SingleStakerStakingService.sol:
   - https://bscscan.com/address/0x57e61dAAe04F8C5FC973493706Ca6E746F62749A
+- BoostingServicePrivateUpgradeable.sol:
+  - https://bscscan.com/address/0x99dfa8dd16c07ae573c9dace6c2127140a3f4abf
