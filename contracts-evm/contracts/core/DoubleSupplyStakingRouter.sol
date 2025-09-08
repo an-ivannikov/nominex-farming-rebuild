@@ -3,6 +3,7 @@ pragma solidity >=0.8.0 <0.9.0;
 
 import "../supply/FixedRateNmxSupplier.sol";
 import "./StakingRouter.sol";
+import "../interfaces/ITokenSupplier.sol";
 
 contract DoubleSupplyStakingRouter is StakingRouter {
     address public immutable additionalSupplier;
@@ -19,9 +20,11 @@ contract DoubleSupplyStakingRouter is StakingRouter {
         additionalSupplier = address(fixedRateNmxSupplier);
     }
 
-    function receiveSupply(uint40 maxTime) internal override returns (uint256) {
+    function _receiveSupply(
+        uint40 maxTime
+    ) internal override returns (uint256) {
         return
-            StakingRouter.receiveSupply(maxTime) +
-            INmxSupplier(additionalSupplier).supplyNmx(maxTime);
+            StakingRouter._receiveSupply(maxTime) +
+            ITokenSupplier(additionalSupplier).supplyToken(maxTime);
     }
 }

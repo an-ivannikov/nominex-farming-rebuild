@@ -1,13 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0 <0.9.0;
 
-import "../token/Nmx.sol";
+import "../interfaces/ITokenSupplier.sol";
 import "../access/RecoverableByOwner.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "abdk-libraries-solidity/ABDKMath64x64.sol";
+import {ABDKMath64x64} from "abdk-libraries-solidity/ABDKMath64x64.sol";
 
-contract ConstantComplexityStakingRouter is RecoverableByOwner, INmxSupplier {
+contract ConstantComplexityStakingRouter is RecoverableByOwner, ITokenSupplier {
     using ABDKMath64x64 for int128;
+
     address public immutable nmx;
 
     struct ServiceSupplyState {
@@ -24,7 +25,7 @@ contract ConstantComplexityStakingRouter is RecoverableByOwner, INmxSupplier {
         nmx = _nmx;
     }
 
-    /// @dev the owner can change shares of different StakingServices in PRIMARY POOL
+    /// @dev the owner can change shares of different StakingServices in OnChain MintPool.
     function changeStakingServiceShares(
         address[] calldata addresses,
         int128[] calldata shares
@@ -74,10 +75,10 @@ contract ConstantComplexityStakingRouter is RecoverableByOwner, INmxSupplier {
         activeServices = addresses;
     }
 
-    function supplyNmx(
+    function supplyToken(
         uint40 maxTime
     ) external override returns (uint256 supply) {
-        uint256 _totalSupply = receiveSupply(maxTime) + totalSupply;
+        uint256 _totalSupply = _receiveSupply(maxTime) + totalSupply;
         totalSupply = _totalSupply;
 
         ServiceSupplyState storage supplyState = supplyStates[_msgSender()];
@@ -120,8 +121,8 @@ contract ConstantComplexityStakingRouter is RecoverableByOwner, INmxSupplier {
         return balance - pendingSupply;
     }
 
-    function receiveSupply(uint40 maxTime) internal virtual returns (uint256) {
-        return INmxSupplier(nmx).supplyNmx(maxTime);
+    function _receiveSupply(uint40 maxTime) internal virtual returns (uint256) {
+        return ITokenSupplier(nmx).supplyToken(maxTime);
     }
 
     function pendingSupplies(address service) external view returns (uint256) {

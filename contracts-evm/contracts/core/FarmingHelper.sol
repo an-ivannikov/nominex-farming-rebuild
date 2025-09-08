@@ -2,8 +2,9 @@
 pragma solidity >=0.8.0 <0.9.0;
 pragma experimental ABIEncoderV2;
 
+import "../token/Token.sol";
 import "./DoubleSupplyStakingRouter.sol";
-import "../supply/FixedRateNmxSupplier.sol";
+import "../supply/FixedRateTokenSupplier.sol";
 
 contract FarmingHelper {
     using ABDKMath64x64 for int128;
@@ -15,7 +16,7 @@ contract FarmingHelper {
 
     function mintScheduleNextTickSupply() public view returns (uint256) {
         StakingRouter r = StakingRouter(router);
-        Nmx nmx = Nmx(r.nmx());
+        Token nmx = Token(r.nmx());
         MintSchedule schedule = MintSchedule(nmx.mintSchedule());
         MintScheduleState memory state;
         (
@@ -24,12 +25,12 @@ contract FarmingHelper {
             state.weekIndex,
             state.weekStartTime,
             state.nextTickSupply
-        ) = nmx.poolMintStates(uint256(MintPool.PRIMARY));
+        ) = nmx.poolMintStates(uint256(MintPool.OnChain));
 
         (, MintScheduleState memory state2) = schedule.makeProgress(
             state,
             uint40(block.timestamp),
-            MintPool.PRIMARY
+            MintPool.OnChain
         );
         return state2.nextTickSupply;
     }

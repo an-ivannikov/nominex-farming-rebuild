@@ -2,7 +2,7 @@
 pragma solidity >=0.8.0 <0.9.0;
 pragma abicoder v2;
 
-import "../token/Nmx.sol";
+import "../interfaces/ITokenSupplier.sol";
 import "../access/PausableByOwner.sol";
 import "../access/RecoverableByOwner.sol";
 import "@uniswap/v2-core/contracts/interfaces/IUniswapV2ERC20.sol";
@@ -311,7 +311,7 @@ contract StakingService is PausableByOwner, RecoverableByOwner {
     }
 
     function updateHistoricalRewardRate() public {
-        uint256 currentNmxSupply = INmxSupplier(nmxSupplier).supplyNmx(
+        uint256 currentNmxSupply = ITokenSupplier(nmxSupplier).supplyToken(
             uint40(block.timestamp)
         );
         if (currentNmxSupply == 0) return;
@@ -326,8 +326,8 @@ contract StakingService is PausableByOwner, RecoverableByOwner {
         }
     }
 
-    function changeNmxSupplier(address newNmxSupplier) external onlyOwner {
-        nmxSupplier = newNmxSupplier;
+    function changeTokenSupplier(address newTokenSupplier) external onlyOwner {
+        nmxSupplier = newTokenSupplier;
     }
 
     function totalStaked() external view returns (uint128) {

@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0 <0.9.0;
 
-import "../interfaces/INmxSupplier.sol";
+import "../interfaces/ITokenSupplier.sol";
 import "../access/RecoverableByOwner.sol";
 
-contract FixedRateNmxSupplier is INmxSupplier, RecoverableByOwner {
+contract FixedRateNmxSupplier is ITokenSupplier, RecoverableByOwner {
     address immutable nmx;
     address immutable stakingRouter;
     uint128 public nmxPerSecond;
@@ -39,7 +39,7 @@ contract FixedRateNmxSupplier is INmxSupplier, RecoverableByOwner {
         fromTime = _fromTime;
     }
 
-    function supplyNmx(
+    function supplyToken(
         uint40 maxTime
     ) external override onlyStakingRouter returns (uint256) {
         uint128 _nmxPerSecond = nmxPerSecond;

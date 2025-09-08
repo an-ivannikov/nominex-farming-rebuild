@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0 <0.9.0;
 
-import "../token/Nmx.sol";
+import "../interfaces/ITokenSupplier.sol";
 import "../access/RecoverableByOwner.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "abdk-libraries-solidity/ABDKMath64x64.sol";
+import {ABDKMath64x64} from "abdk-libraries-solidity/ABDKMath64x64.sol";
 
-contract StakingRouter is RecoverableByOwner, INmxSupplier {
+contract StakingRouter is RecoverableByOwner, ITokenSupplier {
     using ABDKMath64x64 for int128;
     address public immutable nmx;
-    mapping(address => int128) public serviceShares; /// @dev different StakingServices could have different shares in PRIMARY POOL
+    mapping(address => int128) public serviceShares; /// @dev different StakingServices could have different shares in OnChain MintPool.
     address[] activeServices;
     uint256 pendingSupplyOfInactiveServices;
     mapping(address => uint256) public pendingSupplies; /// @dev If there is more than one StakingService it is necessary to store supplied amount of Nmx between the invocations of particular service to return correct amount of supplied tokens
@@ -18,7 +18,7 @@ contract StakingRouter is RecoverableByOwner, INmxSupplier {
         nmx = _nmx;
     }
 
-    /// @dev the owner can change shares of different StakingServices in PRIMARY POOL
+    /// @dev the owner can change shares of different StakingServices in OnChain MintPool.
     function changeStakingServiceShares(
         address[] calldata addresses,
         int128[] calldata shares
@@ -65,7 +65,7 @@ contract StakingRouter is RecoverableByOwner, INmxSupplier {
         activeServices = addresses;
     }
 
-    function supplyNmx(
+    function supplyToken(
         uint40 maxTime
     ) external override returns (uint256 supply) {
         bool serviceActive;
@@ -91,7 +91,7 @@ contract StakingRouter is RecoverableByOwner, INmxSupplier {
         address requestedService,
         uint40 maxTime
     ) private returns (uint256 serviceSupply, bool serviceActive) {
-        uint256 supply = receiveSupply(maxTime);
+        uint256 supply = _receiveSupply(maxTime);
         uint256 activeServicesLength = activeServices.length;
         for (
             uint256 activeServiceIndex = 0;
@@ -114,8 +114,8 @@ contract StakingRouter is RecoverableByOwner, INmxSupplier {
         return (serviceSupply, serviceActive);
     }
 
-    function receiveSupply(uint40 maxTime) internal virtual returns (uint256) {
-        return INmxSupplier(nmx).supplyNmx(maxTime);
+    function _receiveSupply(uint40 maxTime) internal virtual returns (uint256) {
+        return ITokenSupplier(nmx).supplyToken(maxTime);
     }
 
     function getRecoverableAmount(

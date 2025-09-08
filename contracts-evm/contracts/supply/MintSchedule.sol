@@ -2,11 +2,14 @@
 pragma solidity >=0.8.0 <0.9.0;
 pragma experimental ABIEncoderV2;
 
-import "../utils/Lib.sol";
 import "../access/RecoverableByOwner.sol";
-import "abdk-libraries-solidity/ABDKMath64x64.sol";
+
+import "../utils/Lib.sol";
+import {ABDKMath64x64} from "abdk-libraries-solidity/ABDKMath64x64.sol";
 
 contract MintSchedule is RecoverableByOwner {
+    using ABDKMath64x64 for int128;
+
     /**
      * @dev structure to describe the mint schedule. After each week MintScheduleState.nextTickSupply decreases.
      * When the schedule completes weekCount weeks in current item it goes to the next item in the items.
@@ -21,7 +24,6 @@ contract MintSchedule is RecoverableByOwner {
     }
     uint40 constant WEEK_DURATION = 7 days;
 
-    using ABDKMath64x64 for int128;
     ScheduleItem[] public items; /// @dev array of shcedule describing items
 
     constructor(address initialOwner) Ownable(initialOwner) {

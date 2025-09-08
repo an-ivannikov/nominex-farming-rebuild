@@ -2,26 +2,24 @@
 pragma solidity >=0.8.0 <0.9.0;
 
 /**
- * @dev kinds of possible pools
- *
- * @param DEFAULT_VALUE - dummy type for null value
- * @param PRIMARY - blockchain based staking. All rules are declared in the  contracts
- * @param NOMINEX - tokens for Nominex company (BONUS and TEAM pools included)
+ * @dev kinds of possible pools.
+ * @param DefaultValue - dummy type for null value.
+ * @param OnChain - blockchain based staking. All rules are declared in the contracts.
+ * @param OffChain - tokens for Nominex company (BONUS and TEAM pools included).
  */
 enum MintPool {
-    DEFAULT_VALUE,
-    PRIMARY,
-    NOMINEX
+    DefaultValue,
+    OnChain,
+    OffChain
 }
 
 /**
- * @dev current state of the schedule for each MintPool
- *
- * @param time last invocation time
- * @param itemIndex index of current item in MintSchedule.items
- * @param weekIndex index of current week in current item in MintSchedule.items
- * @param weekStartTime start time of the current week
- * @param nextTickSupply amount of Nmx to be distributed next second
+ * @dev current state of the schedule for each MintPool.
+ * @param time last invocation time.
+ * @param itemIndex index of current item in MintSchedule.items.
+ * @param weekIndex index of current week in current item in MintSchedule.items.
+ * @param weekStartTime start time of the current week.
+ * @param nextTickSupply amount of Nmx to be distributed next second.
  */
 struct MintScheduleState {
     uint40 time;

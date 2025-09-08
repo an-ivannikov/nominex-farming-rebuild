@@ -3,9 +3,9 @@ pragma solidity >=0.8.0 <0.9.0;
 
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "abdk-libraries-solidity/ABDKMath64x64.sol";
+import {ABDKMath64x64} from "abdk-libraries-solidity/ABDKMath64x64.sol";
 
-import "../interfaces/INmxSupplier.sol";
+import "../interfaces/ITokenSupplier.sol";
 import "../interfaces/IStakingService.sol";
 
 import "../access/PausableByOwnerUpgradeable.sol";
@@ -497,7 +497,7 @@ contract BoostingServicePrivateUpgradeable is
 
     function _receiveBoosting(uint128 compoundRewards) private {
         uint128 boostingRewards = uint128(
-            INmxSupplier(nmxSupplier).supplyNmx(uint40(block.timestamp))
+            ITokenSupplier(nmxSupplier).supplyToken(uint40(block.timestamp))
         );
         uint128 expectedBoostings = (compoundRewards * boostingRate) /
             RATE_DENOMINATOR;
